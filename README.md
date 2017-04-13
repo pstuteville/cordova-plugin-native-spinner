@@ -29,7 +29,6 @@ cordova prepare
 #### SpinnerDialog.hide
     SpinnerDialog.hide();
 
-
 ## Quirks
 * Cordova 5.0 or higher is required for Windows 10 support.
 * Windows 10 Mobile or Windows Phone 8.1 is required as desktop doesn't support StatusBar.

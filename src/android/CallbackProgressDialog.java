@@ -12,45 +12,45 @@ import android.view.MotionEvent;
 
 public class CallbackProgressDialog extends ProgressDialog {
 
-	public static CallbackContext callbackContext;
+  public static CallbackContext callbackContext;
 
-	public CallbackProgressDialog(Context context) {
-		super(context);
-	}
+  public CallbackProgressDialog(Context context) {
+    super(context);
+  }
 
-	public static CallbackProgressDialog show(Context context,
-			CharSequence title, CharSequence message, boolean indeterminate,
-			boolean cancelable, OnCancelListener cancelListener,
-			CallbackContext callbackContext) {
-		CallbackProgressDialog.callbackContext = callbackContext;
-		CallbackProgressDialog dialog = new CallbackProgressDialog(context);
-		dialog.setTitle(title);
-		dialog.setMessage(message);
-		dialog.setIndeterminate(indeterminate);
-		dialog.setCancelable(cancelable);
-		dialog.setOnCancelListener(cancelListener);
-		dialog.show();
-		return dialog;
-	}
+  public static CallbackProgressDialog show(Context context,
+      CharSequence title, CharSequence message, boolean indeterminate,
+      boolean cancelable, OnCancelListener cancelListener,
+      CallbackContext callbackContext) {
+    CallbackProgressDialog.callbackContext = callbackContext;
+    CallbackProgressDialog dialog = new CallbackProgressDialog(context);
+    dialog.setTitle(title);
+    dialog.setMessage(message);
+    dialog.setIndeterminate(indeterminate);
+    dialog.setCancelable(cancelable);
+    dialog.setOnCancelListener(cancelListener);
+    dialog.show();
+    return dialog;
+  }
 
-	private void sendCallback() {
-		PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
-		pluginResult.setKeepCallback(true);
-		callbackContext.sendPluginResult(pluginResult);
-	}
+  private void sendCallback() {
+    PluginResult pluginResult = new PluginResult(PluginResult.Status.OK);
+    pluginResult.setKeepCallback(true);
+    callbackContext.sendPluginResult(pluginResult);
+  }
 
-	@Override
-	public void onBackPressed() {
-		sendCallback();
-	}
+  @Override
+  public void onBackPressed() {
+    sendCallback();
+  }
 
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		if (event.getAction() == MotionEvent.ACTION_DOWN) {
-			sendCallback();
-			return true;
-		}
-		return false;
-	}
+  @Override
+  public boolean onTouchEvent(MotionEvent event) {
+    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+      sendCallback();
+      return true;
+    }
+    return false;
+  }
 
 }
