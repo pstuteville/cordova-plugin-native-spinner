@@ -84,28 +84,21 @@ public class SpinnerDialog extends CordovaPlugin {
             dialog.setContentView(new ProgressBar(cordova.getActivity()));
             dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
           }
-          
-
         }
       };
       this.cordova.getActivity().runOnUiThread(runnable);
 
     } else if (action.equals("hide")) {
-
       Runnable runnable = new Runnable() {
         public void run() {
-
           if (!SpinnerDialog.this.spinnerDialogStack.empty()) {
             SpinnerDialog.this.spinnerDialogStack.pop().dismiss();
           }
-
         }
       };
       this.cordova.getActivity().runOnUiThread(runnable);
-
     }
     
     return true;
   }
-
 }

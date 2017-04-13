@@ -29,6 +29,7 @@ public class CallbackProgressDialog extends ProgressDialog {
     dialog.setIndeterminate(indeterminate);
     dialog.setCancelable(cancelable);
     dialog.setOnCancelListener(cancelListener);
+    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     dialog.show();
     return dialog;
   }
