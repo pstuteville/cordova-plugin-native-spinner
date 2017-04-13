@@ -10,9 +10,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.MotionEvent;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-
 public class CallbackProgressDialog extends ProgressDialog {
 
   public static CallbackContext callbackContext;
@@ -32,7 +29,6 @@ public class CallbackProgressDialog extends ProgressDialog {
     dialog.setIndeterminate(indeterminate);
     dialog.setCancelable(cancelable);
     dialog.setOnCancelListener(cancelListener);
-    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
     dialog.show();
     return dialog;
   }
