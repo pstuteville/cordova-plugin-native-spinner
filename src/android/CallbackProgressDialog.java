@@ -10,6 +10,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.view.MotionEvent;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+
 public class CallbackProgressDialog extends ProgressDialog {
 
   public static CallbackContext callbackContext;
