@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-native-spinner",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A Cordova plugin for showing a progress indicator based on Paldom/SpinnerDialog",
   "author": "Aleksandr Filatov",
   "license": "MIT",
