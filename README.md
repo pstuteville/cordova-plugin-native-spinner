@@ -45,6 +45,42 @@ cordova prepare
 #### SpinnerDialog.hide
     SpinnerDialog.hide();
 
+## Usage
+
+```
+// Show spinner dialog
+SpinnerDialog.show();
+
+// Show spinner dialog with message
+// Note: spinner dialog is cancelable by default
+SpinnerDialog.show(null, "message");
+
+// Set spinner dialog fixed
+SpinnerDialog.show(null, null, true);
+
+// Set spinner dialog fixed with callback
+// Note: callback fires on tap events and Android hardware back button click event
+SpinnerDialog.show(null, null, function () {console.log("callback");});
+
+// Show spinner dialog with title and message (Android only)
+SpinnerDialog.show("title","message");
+
+// Set spinner dialog fixed (cannot be canceled with screen touch or Android hardware button)
+SpinnerDialog.show("title","message", true);
+
+// Overlay opacity and text color options (IOS only)
+SpinnerDialog.show(null,"Message",true, {overlayOpacity: 0.35,  textColorRed: 1, textColorGreen: 1, textColorBlue: 1}); 
+
+// Change only overlay opacity (IOS only)
+SpinnerDialog.show(null,"Message",true,{overlayOpacity:0.70});
+
+// Change only text color (IOS only)
+SpinnerDialog.show(null,"message",true, { textColorRed: 0.1, textColorGreen: 0.1, textColorBlue: 1});
+
+// Hide spinner dialog
+SpinnerDialog.hide();
+```
+
 ## Quirks
 * Cordova 5.0 or higher is required for Windows 10 support.
 * Windows 10 Mobile or Windows Phone 8.1 is required as desktop doesn't support StatusBar.
