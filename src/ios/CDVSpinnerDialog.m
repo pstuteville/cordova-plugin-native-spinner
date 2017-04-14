@@ -61,10 +61,13 @@
 
         _messageView = [[UILabel alloc] initWithFrame: self.rectForView];
         [_messageView setText: message == nil ? title : message];
-        [_messageView setTextColor: [UIColor colorWithRed:[red floatValue] green:[green floatValue] blue:[blue floatValue] alpha:0.85]];
+        [_messageView setTextColor: [UIColor colorWithRed:[red floatValue] green:[green floatValue] blue:[blue floatValue] alpha:0.65]];
         [_messageView setBackgroundColor: [UIColor colorWithRed:0 green:0 blue:0 alpha:0]];
         [_messageView setTextAlignment: NSTextAlignmentCenter];
-         _messageView.center = (CGPoint){_overlay.center.x, _overlay.center.y + 40};
+        _messageView.center = (CGPoint){_overlay.center.x, _overlay.center.y + 40};
+        _messageView.font = [UIFont fontWithName:@"Helvetica" size:(10.0)];
+        _messageView.lineBreakMode = UILineBreakModeWordWrap;
+        _messageView.numberOfLines = 0;lineBreakMode
         [_overlay addSubview:_messageView];
 
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
