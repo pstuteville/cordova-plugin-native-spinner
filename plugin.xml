@@ -6,7 +6,7 @@
   id="com.greybax.spinnerdialog"
   version="1.0.6">
 
-  <name>cordova-plugin-spinnerdialog</name>
+  <name>cordova-plugin-native-spinner</name>
   <description>
       Cordova plugin for showing a progress indicator based on Paldom/SpinnerDialog.
       for Android, iOS, Windows 10 and Windows Phone 8.
