@@ -7,7 +7,7 @@ NPM Package: [cordova-plugin-native-spinner](https://www.npmjs.com/package/cordo
 ## Platforms
 | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Android_robot.svg/511px-Android_robot.svg.png" width="48px" height="48px" alt="Android logo"> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/2000px-Apple_logo_black.svg.png" width="48px" height="48px" alt="iOS logo"> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/2000px-Windows_logo_-_2012.svg.png" width="48px" height="48px" alt="Windows logo"> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Windows_logo_-_2012.svg/2000px-Windows_logo_-_2012.svg.png" width="48px" height="48px" alt="Windows logo">
 |:---:|:---:|:---:|:---:|
-| 4.1+ ✔ | ?+ ✔ | Windows Phone 8.1+ ✔ | 10+ ✔ |
+| 4.1+ ✔ | 10+ ✔ | Windows Phone 8.1+ ✔ | 10+ ✔ |
 
 ## Installation
 
@@ -24,6 +24,12 @@ NPM Package: [cordova-plugin-native-spinner](https://www.npmjs.com/package/cordo
 cordova plugin add cordova-plugin-native-spinner
 cordova prepare
 ```
+
+## Includes PR's improvements from Paldom/SpinnerDialog:
+
+* [InAppBrowser Compatibility](https://github.com/Paldom/SpinnerDialog/pull/34)
+* [Change loading text if we call show function and loading dialog exists](https://github.com/Paldom/SpinnerDialog/pull/23)
+* and **tons fixes** from here https://github.com/Paldom/SpinnerDialog/issues ...
 
 ## Methods
 - `SpinnerDialog.show`
@@ -42,12 +48,6 @@ cordova prepare
 ## Quirks
 * Cordova 5.0 or higher is required for Windows 10 support.
 * Windows 10 Mobile or Windows Phone 8.1 is required as desktop doesn't support StatusBar.
-
-Includes PR's improvements from Paldom/SpinnerDialog:
-
-* [InAppBrowser Compatibility](https://github.com/Paldom/SpinnerDialog/pull/34)
-* [Change loading text if we call show function and loading dialog exists](https://github.com/Paldom/SpinnerDialog/pull/23)
-* and **tons fixes** from here https://github.com/Paldom/SpinnerDialog/issues ...
 
 ## License
 See "LICENSE".
