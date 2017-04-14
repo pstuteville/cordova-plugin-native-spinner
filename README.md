@@ -42,7 +42,13 @@ cordova prepare
 ## Quirks
 * Cordova 5.0 or higher is required for Windows 10 support.
 * Windows 10 Mobile or Windows Phone 8.1 is required as desktop doesn't support StatusBar.
-    
+
+Includes PR's improvements from Paldom/SpinnerDialog:
+
+* [InAppBrowser Compatibility](https://github.com/Paldom/SpinnerDialog/pull/34)
+* [Change loading text if we call show function and loading dialog exists](https://github.com/Paldom/SpinnerDialog/pull/23)
+* and **tons fixes** from here https://github.com/Paldom/SpinnerDialog/issues ...
+
 ## License
 See "LICENSE".
 Based on https://github.com/Paldom/SpinnerDialog with lots of awesome improvements! :star: :tada: :rocket: :star:
