@@ -4,7 +4,7 @@
   xmlns:amazon="http://schemas.android.com/apk/lib/com.amazon.device.ads"
   xmlns:rim="http://www.blackberry.com/ns/widgets"
   id="com.greybax.spinnerdialog"
-  version="1.0.8">
+  version="1.1.0">
 
   <name>cordova-plugin-native-spinner</name>
   <description>
@@ -21,7 +21,7 @@
   <asset src="www/SpinnerDialog.js" target="js/SpinnerDialog.js"/>
 
   <js-module src="www/SpinnerDialog.js" name="SpinnerDialog">
-      <clobbers target="SpinnerDialog" />
+      <merges target="window.plugins.SpinnerDialog" />
   </js-module>
   
   <!-- android -->
