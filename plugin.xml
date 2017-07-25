@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
         id="cordova-plugin-native-spinner"
-        version="1.1.2">
+        version="1.1.3">
   <name>Native Spinner</name>
   <description>
       Cordova plugin for showing a progress indicator based on Paldom/SpinnerDialog. for Android, iOS, Windows 10 and Windows Phone 8.
@@ -16,14 +16,14 @@
   <asset src="www/SpinnerDialog.js" target="js/SpinnerDialog.js"/>
 
   <js-module src="www/SpinnerDialog.js" name="SpinnerDialog">
-      <merges target="window.plugins.SpinnerDialog" />
+      <clobbers target="SpinnerDialog" />
   </js-module>
   
   <!-- android -->
   <platform name="android">
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="SpinnerDialog">
-        <param name="android-package" value="com.greybax.plugins.SpinnerDialog"/>
+        <param name="android-package" value="com.greybax.spinnerdialog.SpinnerDialog"/>
       </feature>
     </config-file>
 
