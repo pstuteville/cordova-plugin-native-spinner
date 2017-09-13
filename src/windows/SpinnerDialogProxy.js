@@ -10,13 +10,13 @@ cordova.commandProxy.add("SpinnerDialog", {
       typeof Windows.UI !== 'undefined' /* Check that we have a UI to work with */ &&
       typeof Windows.UI.ViewManagement.StatusBar !== 'undefined' /* Check that we have the StatusBar to work with*/) {
 
-      var data = data[0] || { title: undefined };
+      
       progressIndicator = Windows.UI.ViewManagement.StatusBar.ProgressIndicator
         || Windows.UI.ViewManagement.StatusBar.getForCurrentView().progressIndicator;
 
-      if (data.title == null)
-        data.title = undefined;
-      progressIndicator.text = typeof data.title !== 'undefined' ? data.title : 'Loading...';
+      if (typeof(data[0]) !== 'undefined' && data[0] !== null) {
+        progressIndicator.text = data[0];
+	    }
       progressIndicator.showAsync();
       Windows.UI.ViewManagement.StatusBar.getForCurrentView().showAsync();
     } else if (typeof Windows !== 'undefined' &&
