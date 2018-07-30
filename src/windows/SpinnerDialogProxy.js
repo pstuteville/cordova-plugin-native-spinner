@@ -30,7 +30,11 @@ cordova.commandProxy.add("SpinnerDialog", {
       typeof Windows.UI !== 'undefined' /* Check that we have a UI to work with */ &&
       typeof Windows.UI.ViewManagement.StatusBar !== 'undefined' /* Check that we have the StatusBar to work with*/) {
 
-      progressIndicator.hideAsync();
+      try {
+        progressIndicator.hideAsync();
+      } catch(e) {
+        console.warn(e.message);
+      }
       /* Hide status bar if data is undefined or false exclusively */
       if(typeof(data[0]) === 'undefined' || data[0] === false) {
         Windows.UI.ViewManagement.StatusBar.getForCurrentView().hideAsync();
