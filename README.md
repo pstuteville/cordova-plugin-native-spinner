@@ -1,6 +1,7 @@
 # cordova-plugin-native-spinner
 
 [![NPM version][npm-image]][npm-url]
+[![npm](https://img.shields.io/npm/dm/cordova-plugin-native-spinner.svg)](https://www.npmjs.com/package/cordova-plugin-native-spinner)
 
 > Cordova plugin for showing a native spinner based on Paldom/SpinnerDialog
 
