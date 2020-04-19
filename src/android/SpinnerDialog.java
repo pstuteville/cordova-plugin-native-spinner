@@ -24,6 +24,15 @@ public class SpinnerDialog extends CordovaPlugin {
   }
 
   public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
+    /*
+		 * Don't run any of these if the current activity is finishing in order
+		 * to avoid android.view.WindowManager$BadTokenException crashing the
+		 * app.
+		 */
+		if (this.cordova.getActivity().isFinishing()) {
+			return true;
+		}
+    
     if (action.equals("show")) {
 
       final String title = "null".equals(args.getString(0)) ? null : args.getString(0);
