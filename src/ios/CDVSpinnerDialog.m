@@ -82,6 +82,9 @@
 - (void) show:(CDVInvokedUrlCommand*)command {
 
     callbackId = command.callbackId;
+    
+    //If there is a loading mask yet we hide it
+    [self hide];
 
     title = [command argumentAtIndex:0];
     message = [command argumentAtIndex:1];
@@ -93,7 +96,7 @@
     
     UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
 
-    [[self getTopMostViewController].view addSubview:self.overlay];
+    [rootViewController.view addSubview:self.overlay];
 
 }
 
@@ -112,15 +115,8 @@
         _overlay = nil;
     }
 }
-- (UIViewController*) getTopMostViewController {
-    UIViewController *presentingViewController = [[[UIApplication sharedApplication] delegate] window].rootViewController;
-    while (presentingViewController.presentedViewController != nil) {
-        presentingViewController = presentingViewController.presentedViewController;
-    }
-    return presentingViewController;
-}
+
 
 #pragma mark - PRIVATE METHODS
-
 
 @end
