@@ -66,7 +66,7 @@
         [_messageView setTextAlignment: NSTextAlignmentCenter];
         _messageView.center = (CGPoint){_overlay.center.x, _overlay.center.y + 40};
         _messageView.font = [UIFont fontWithName:@"Helvetica" size:(10.0)];
-        _messageView.lineBreakMode = UILineBreakModeWordWrap;
+        _messageView.lineBreakMode = NSLineBreakByCharWrapping;
         _messageView.numberOfLines = 0;
         [_overlay addSubview:_messageView];
 
@@ -122,5 +122,3 @@
 
 
 @end
-
-
