@@ -33,8 +33,10 @@
 @synthesize messageView = _messageView;
 
 -(CGRect)rectForView {
-    if ((NSFoundationVersionNumber <= 1047.25 /* 7.1 */) && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
-        return CGRectMake( 0.0f, 0.0f, [[UIScreen mainScreen]bounds].size.height, [UIScreen mainScreen].bounds.size.width);
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    BOOL landscape = (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight);
+    if(landscape){
+        return CGRectMake( 0.0f, 0.0f, [UIScreen mainScreen].bounds.size.height, [[UIScreen mainScreen]bounds].size.width);
     }
     return CGRectMake( 0.0f, 0.0f, [[UIScreen mainScreen]bounds].size.width, [UIScreen mainScreen].bounds.size.height);
 }
@@ -66,7 +68,7 @@
         [_messageView setTextAlignment: NSTextAlignmentCenter];
         _messageView.center = (CGPoint){_overlay.center.x, _overlay.center.y + 40};
         _messageView.font = [UIFont fontWithName:@"Helvetica" size:(10.0)];
-        _messageView.lineBreakMode = UILineBreakModeWordWrap;
+        _messageView.lineBreakMode = NSLineBreakByCharWrapping;
         _messageView.numberOfLines = 0;
         [_overlay addSubview:_messageView];
 
@@ -80,6 +82,9 @@
 - (void) show:(CDVInvokedUrlCommand*)command {
 
     callbackId = command.callbackId;
+    
+    //If there is a loading mask yet we hide it
+    [self hide];
 
     title = [command argumentAtIndex:0];
     message = [command argumentAtIndex:1];
@@ -91,7 +96,7 @@
     
     UIViewController *rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
 
-    [[self getTopMostViewController].view addSubview:self.overlay];
+    [rootViewController.view addSubview:self.overlay];
 
 }
 
@@ -110,17 +115,8 @@
         _overlay = nil;
     }
 }
-- (UIViewController*) getTopMostViewController {
-    UIViewController *presentingViewController = [[[UIApplication sharedApplication] delegate] window].rootViewController;
-    while (presentingViewController.presentedViewController != nil) {
-        presentingViewController = presentingViewController.presentedViewController;
-    }
-    return presentingViewController;
-}
+
 
 #pragma mark - PRIVATE METHODS
 
-
 @end
-
-
